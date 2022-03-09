@@ -2,32 +2,9 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func maxSubArray(nums []int) int {
-	max := math.MinInt
-	currSum := 0
-	if len(nums) == 1 {
-		return nums[0]
-	}
-
-	for i := 0; i < len(nums); i++ {
-
-		currSum += nums[i]
-		fmt.Println(currSum)
-
-		if max < currSum {
-			max = currSum
-		}
-
-		if currSum < 0 {
-			currSum = 0
-		}
-
-	}
-
-	return max
 
 }
 
