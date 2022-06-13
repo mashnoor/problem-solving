@@ -1,16 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-
+#include <utility>
+#include <unordered_map>
 using namespace std;
 
 // vector<vector<int>> maintrig = {};
 int mn = INT_MAX;
+unordered_map<pair<int, int>, int> mp;
+
 void trav(vector<vector<int>>& triangle, int k, int i, int j)
 {
     vector<int> v = triangle[j];
     int m1 = k + v[i];
     int m2 = k + v[i+1];
+
 
     if(j >= triangle.size() -1)
     {
