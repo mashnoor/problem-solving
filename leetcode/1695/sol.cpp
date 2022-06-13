@@ -6,73 +6,27 @@ using namespace std;
 int maximumUniqueSubarray(vector<int>& nums)
 {
     unordered_map<int, int> mp;
-    // int i = 0;
-    int mxsum = 0;
-    int currSum = 0;
-    int window_start = -1;
-    // while(i<nums.size())
-    // {
-    //     int currentNum = nums[i];
-    //     // cout<<window_start<<endl;
-        
-    //     if(mp.find(currentNum) != mp.end() && mp[currentNum] != i)
-    //     {
-    //         //reset
-    //         i = mp[currentNum] + 1;
-    //         // window_start = mp[currentNum] + 1;
-    //         currSum = 0;
-    //         mp.clear();
-    //         // cout<<"Resetting i = "<<i-1<<"Curr num = "<<currentNum<<endl;
-    //         // cout<<"Skipping "<<currentNum<<endl;
-    //         // cout<<"MP - "<<currentNum<<"="<<mp[currentNum]<<endl;
-    //     }
-    //     else
-    //     {
-    //         currSum += currentNum;
-    //         if(mxsum < currSum)
-    //         {
-    //             mxsum = currSum;
-    //         }
-    //         mp[currentNum] = i;
-    //         // cout<<currentNum<<endl;
-    //         i++;
-    //     }
+    int totalSum = 0;
+    int boundary = -1;
+    int allmem[nums.size()];
 
-        
-
-    // }
-    // cout<<mxsum;
-
-    int mem[nums.size()];
-    for(int i = 0; i<nums.size(); i++)
+    for(int i = 0; i<nums.size();i++)
     {
-        int currentNum = nums[i];
-        
-        if(mp.find(currentNum) != mp.end() && mp[currentNum] != i && mp[currentNum] > window_start)
+        int currVal = nums[i];
+        totalSum += currVal;
+        allmem[i] = totalSum;
+
+        if(mp.find(currVal) != mp.end() && mp[currVal] > boundary)
         {
-            
-            currSum = (currentNum +  mem[i-1]) - mem[mp[currentNum]];
-            cout<<"i = "<<i<<" curr num = "<<currentNum<<" Found = "<<mem[i]<<endl;
-            window_start = mp[currentNum];
-            cout<<"Window = "<<window_start<<endl;
-            mp.erase(currentNum);
             
         }
         else
         {
-            if(i == 0) mem[i] = currentNum;
-            else mem[i] = currentNum + mem[i-1];
-            mp[currentNum] = i;
+            
+
         }
     }
 
-
-    for(int i = 0; i<nums.size(); i++)
-    {
-        cout<<mem[i]<<endl;
-    }
-
-    return -1;
     
         
 }
