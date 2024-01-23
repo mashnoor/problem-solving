@@ -24,11 +24,10 @@ public:
     int bt(vector<string>& arr, int i, string  s)
     {
         if(i == arr.size()) return s.length();
-        string sn = "";
+        
         if(not_overlap(arr[i], s))
         {
-            sn = s + arr[i];
-            return max(bt(arr, i+1, s), bt(arr, i+1, sn));
+            return max(bt(arr, i+1, s), bt(arr, i+1, s + arr[i]));
         }
         else
         {
