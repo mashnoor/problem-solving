@@ -28,9 +28,14 @@ public:
         if(not_overlap(arr[i], s))
         {
             sn = s + arr[i];
+            return max(bt(arr, i+1, s), bt(arr, i+1, sn));
+        }
+        else
+        {
+            return bt(arr, i+1, s);
         }
         
-        return max(bt(arr, i+1, s), bt(arr, i+1, sn));
+        
     }
     int maxLength(vector<string>& arr) 
     {
