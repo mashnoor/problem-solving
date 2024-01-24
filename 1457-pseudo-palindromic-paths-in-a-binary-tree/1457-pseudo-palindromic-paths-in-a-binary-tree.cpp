@@ -15,13 +15,13 @@ public:
    void trav(TreeNode* node, int mp[]) {
         if (node == nullptr) return;
         
-        mp[node->val]++;
+        mp[node->val-1]++;
         
         // Check if it's a leaf node
         if (node->left == nullptr && node->right == nullptr) {
             int oddCount = 0;
             for (int i = 1; i <= 9; i++) {
-                if (mp[i] % 2 != 0) {
+                if (mp[i-1] % 2 != 0) {
                     oddCount++;
                     if (oddCount > 1) break;
                 }
@@ -36,11 +36,11 @@ public:
         }
 
         
-        mp[node->val]--;
+        mp[node->val-1]--;
     }
     int pseudoPalindromicPaths (TreeNode* root) 
     {
-        int mp[10] = {0};
+        int mp[9] = {0};
         trav(root, mp);
         return cnt;
         
