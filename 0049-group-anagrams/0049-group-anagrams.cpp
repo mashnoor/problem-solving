@@ -13,10 +13,18 @@ public:
         vector<vector<string>> res;
         for(auto& p : mp)
         {
-            res.push_back(p.second );
+            res.push_back(move(p.second));
         }
         
         return res;
         
     }
 };
+
+auto init = []() 
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 'c';
+}();
