@@ -3,6 +3,7 @@ public:
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) 
     {
         vector<pair<int, int>> newmp;
+        newmp.reserve(nums.size());
         for(int i = 0; i<nums.size(); i++)
         {
             int num = nums[i];
